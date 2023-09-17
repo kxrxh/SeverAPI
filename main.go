@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	api.Init()
+	api.Init(true)
 	database.Init("kxrxh", "0228", "sever-hack")
 	api.Listen("5000")
 }

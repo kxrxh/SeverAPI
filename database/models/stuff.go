@@ -7,16 +7,18 @@ import (
 )
 
 type Conductor struct {
-	gorm.Model        // GORM will add ID, CreatedAt, UpdatedAt, and DeletedAt fields
-	FirstName  string `gorm:"column:first_name;not null"`
-	LastName   string `gorm:"column:last_name;not null"`
-	MiddleName string `gorm:"column:middle_name"`
-	Sex        string `gorm:"column:sex;type:char(1);check:sex IN ('М', 'Ж');not null"`
-	Email      string `gorm:"column:email;not null"`
-	Phone      string `gorm:"column:phone;not null"`
-	DeviceUID  string `gorm:"column:device_uid;not null;unique"`
-	StateID    uint   `gorm:"column:state_id;references:id"`
-	State      State  `gorm:"constraint:OnUpdate:CASCADE,OnDelete:SET NULL"` // Assuming State is a related model
+	gorm.Model         // GORM will add ID, CreatedAt, UpdatedAt, and DeletedAt fields
+	Password    string `gorm:"column:password;not null"`
+	ConductorId string `gorm:"column:conductor_id;not null;unique"`
+	FirstName   string `gorm:"column:first_name;not null"`
+	LastName    string `gorm:"column:last_name;not null"`
+	MiddleName  string `gorm:"column:middle_name"`
+	Sex         string `gorm:"column:sex;type:char(1);check:sex IN ('М', 'Ж');not null"`
+	Email       string `gorm:"column:email;not null"`
+	Phone       string `gorm:"column:phone;not null"`
+	DeviceUID   string `gorm:"column:device_uid;not null;unique"`
+	StateID     uint   `gorm:"column:state_id;references:id"`
+	State       State  `gorm:"constraint:OnUpdate:CASCADE,OnDelete:SET NULL"` // Assuming State is a related model
 }
 
 type ConductorCard struct {
@@ -51,4 +53,3 @@ type Shift struct {
 	TransportID uint      `gorm:"column:transport_id;references:id"`
 	Transport   Transport `gorm:"constraint:OnUpdate:CASCADE,OnDelete:SET NULL"` // Assuming Transport is a related model
 }
-

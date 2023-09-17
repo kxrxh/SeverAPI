@@ -4,10 +4,12 @@ go 1.21.1
 
 require (
 	github.com/gofiber/fiber/v2 v2.49.2
+	github.com/golang-jwt/jwt/v5 v5.0.0
 	gorm.io/gorm v1.25.4
 )
 
 require (
+	github.com/MicahParks/keyfunc/v2 v2.1.0 // indirect
 	github.com/jackc/pgpassfile v1.0.0 // indirect
 	github.com/jackc/pgservicefile v0.0.0-20221227161230-091c0ba34f0a // indirect
 	github.com/jackc/pgx/v5 v5.4.3 // indirect
@@ -19,6 +21,9 @@ require (
 
 require (
 	github.com/andybalholm/brotli v1.0.5 // indirect
+	github.com/goccy/go-json v0.10.2
+	github.com/gofiber/contrib/jwt v1.0.7
+	github.com/golang-jwt/jwt v3.2.2+incompatible
 	github.com/google/uuid v1.3.1 // indirect
 	github.com/klauspost/compress v1.16.7 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
