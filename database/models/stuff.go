@@ -31,6 +31,8 @@ type ConductorCard struct {
 
 type Manager struct {
 	gorm.Model           // GORM will add ID, CreatedAt, UpdatedAt, and DeletedAt fields
+	Login      string    `gorm:"column:login;not null;unique"`
+	Password   string    `gorm:"column:password;not null"`
 	FirstName  string    `gorm:"column:first_name;not null"`
 	LastName   string    `gorm:"column:last_name;not null"`
 	MiddleName string    `gorm:"column:middle_name"`
