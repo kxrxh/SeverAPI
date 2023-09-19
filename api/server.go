@@ -21,3 +21,5 @@ func monitorRoute(c *fiber.Ctx) error {
 	}
 	return monitor.New(monitor.Config{Title: "Sever Hack Metrics"})(c)
 }
+
+

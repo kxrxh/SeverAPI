@@ -2,7 +2,6 @@ package models
 
 import "gorm.io/gorm"
 
-
 type City struct {
 	gorm.Model        // GORM will add ID, CreatedAt, UpdatedAt, and DeletedAt fields
 	Name       string `gorm:"column:name;not null"`
@@ -30,4 +29,12 @@ type ClientBenefit struct {
 	BenefitID  uint `gorm:"column:benefit_id;not null;primaryKey"`
 	Client     Client
 	Benefit    Benefit
+}
+
+type ClientPromotion struct {
+	gorm.Model       // GORM will add ID, CreatedAt, UpdatedAt, and DeletedAt fields
+	ClientID    uint `gorm:"column:client_id;not null;primaryKey"`
+	PromotionID uint `gorm:"column:promotion_id;not null;primaryKey"`
+	Client      Client
+	Promotion   Promotion
 }
