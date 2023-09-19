@@ -6,14 +6,6 @@ import (
 	"gorm.io/gorm"
 )
 
-type Benefit struct {
-	gorm.Model           // GORM will add ID, CreatedAt, UpdatedAt, and DeletedAt fields
-	Value      string    `gorm:"column:value;not null"`
-	Name       string    `gorm:"column:name;not null;unique"`
-	BeginTime  time.Time `gorm:"column:begin_time;not null"`
-	EndTime    time.Time `gorm:"column:end_time;not null"`
-}
-
 type Partner struct {
 	gorm.Model        // GORM will add ID, CreatedAt, UpdatedAt, and DeletedAt fields
 	Name       string `gorm:"column:name;not null"`
@@ -26,6 +18,7 @@ type Partner struct {
 type Promotion struct {
 	gorm.Model           // GORM will add ID, CreatedAt, UpdatedAt, and DeletedAt fields
 	Name       string    `gorm:"column:name;not null"`
+	Value      string    `gorm:"column:value;not null"`
 	BeginTime  time.Time `gorm:"column:begin_time;not null"`
 	EndTime    time.Time `gorm:"column:end_time;not null"`
 	PartnerID  uint      `gorm:"column:partner_id;references:id"`

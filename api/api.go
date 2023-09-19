@@ -6,7 +6,6 @@ import (
 	"os"
 
 	"github.com/goccy/go-json"
-	jwtware "github.com/gofiber/contrib/jwt"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/compress"
 	"github.com/gofiber/fiber/v2/middleware/cors"
@@ -62,12 +61,12 @@ func initRoutes() {
 	auth.Get("/manager/", managerLogin)
 
 	core := api.Group("/core")
-	core.Use(jwtware.New(jwtware.Config{
-		SigningKey: jwtware.SigningKey{
-			JWTAlg: jwtware.RS256,
-			Key:    apiCore.privateKey.Public(),
-		},
-	}))
+	// core.Use(jwtware.New(jwtware.Config{
+	// 	SigningKey: jwtware.SigningKey{
+	// 		JWTAlg: jwtware.RS256,
+	// 		Key:    apiCore.privateKey.Public(),
+	// 	},
+	// }))
 
 	addManagerRoutes(core.Group("/manager"))
 
